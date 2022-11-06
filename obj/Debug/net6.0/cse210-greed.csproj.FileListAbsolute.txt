@@ -3,3 +3,8 @@ C:\Users\JensenCall\Programmin work\Programming with Classes\test work\Greed\cse
 C:\Users\JensenCall\Programmin work\Programming with Classes\test work\Greed\cse210-greed\obj\Debug\net6.0\cse210-greed.AssemblyInfoInputs.cache
 C:\Users\JensenCall\Programmin work\Programming with Classes\test work\Greed\cse210-greed\obj\Debug\net6.0\cse210-greed.AssemblyInfo.cs
 C:\Users\JensenCall\Programmin work\Programming with Classes\test work\Greed\cse210-greed\obj\Debug\net6.0\cse210-greed.csproj.CoreCompileInputs.cache
+C:\Users\busta\git\cse210-greed\obj\Debug\net6.0\cse210-greed.csproj.AssemblyReference.cache
+C:\Users\busta\git\cse210-greed\obj\Debug\net6.0\cse210-greed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\busta\git\cse210-greed\obj\Debug\net6.0\cse210-greed.AssemblyInfoInputs.cache
+C:\Users\busta\git\cse210-greed\obj\Debug\net6.0\cse210-greed.AssemblyInfo.cs
+C:\Users\busta\git\cse210-greed\obj\Debug\net6.0\cse210-greed.csproj.CoreCompileInputs.cache

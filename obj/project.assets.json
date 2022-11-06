@@ -123,19 +123,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JensenCall\\.nuget\\packages\\": {}
+    "C:\\Users\\busta\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JensenCall\\Programmin work\\Programming with Classes\\test work\\Greed\\cse210-greed\\cse210-greed.csproj",
+      "projectUniqueName": "C:\\Users\\busta\\git\\cse210-greed\\cse210-greed.csproj",
       "projectName": "cse210-greed",
-      "projectPath": "C:\\Users\\JensenCall\\Programmin work\\Programming with Classes\\test work\\Greed\\cse210-greed\\cse210-greed.csproj",
-      "packagesPath": "C:\\Users\\JensenCall\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JensenCall\\Programmin work\\Programming with Classes\\test work\\Greed\\cse210-greed\\obj\\",
+      "projectPath": "C:\\Users\\busta\\git\\cse210-greed\\cse210-greed.csproj",
+      "packagesPath": "C:\\Users\\busta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\busta\\git\\cse210-greed\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JensenCall\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\busta\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
