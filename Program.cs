@@ -27,23 +27,23 @@ static class Program{
                 var xposition = Random.Next(20,780);
                 
                 // I am generating the positions of the falling objects here
-                var position = new Vector2(xposition, 460);
+                var position = new Vector2(xposition, 0);
             
                 switch (whichType) {
                             case 0:
                             //Tempararoly using squares for gem, need to switch to actual drawing
                                 Console.WriteLine("Creating a gem");
-                                var gem = new Gem(Colors[1], 50);
+                                var gem = new Gem(20);
                                 gem.Position = position;
-                                gem.Velocity = new Vector2(randomX, randomY);
-                                Objects.Add(square);
+                                gem.Velocity = new Vector2(0, randomY);
+                                Objects.Add(gem);
                                 break;
                         case 1:
                         //Tempararoly using circles for rock, need to switch to actual drawing
                             Console.WriteLine("Creating a rock");
-                            var rock = new Rock(Colors[2], 25);
+                            var rock = new Rock( 10);
                             rock.Position = position;
-                            rock.Velocity = new Vector2(randomX, randomY);
+                            rock.Velocity = new Vector2(0, randomY);
                             Objects.Add(rock);
                             break;
                         default:
@@ -51,7 +51,7 @@ static class Program{
                         
                         }
                     Raylib.BeginDrawing();
-                    Raylib.ClearBackground(Colors[6]);
+                    Raylib.ClearBackground(Color.BLACK);
 
                     // Draw all of the objects in their current location
                     foreach (var obj in Objects) {
