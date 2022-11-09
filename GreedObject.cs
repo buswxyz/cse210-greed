@@ -30,9 +30,6 @@ class ColoredObject: Colors  {
         Color = this.randomColor();
     }
 
-    protected string randomColor(List<string> colorNames){
-        
-    }
 }
 
 
