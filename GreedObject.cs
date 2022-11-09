@@ -3,6 +3,7 @@ using System.Numerics;
 
 namespace Helloworld{
 class Colors{
+
     protected List<Color> colorNames = new List<Color>();
 
     public Colors(){
@@ -19,7 +20,7 @@ class Colors{
         int index = random.Next(0,6);
         Color color = colorNames[index];
         return color;
-        
+
     }
 }
 class ColoredObject: Colors  {
@@ -28,10 +29,16 @@ class ColoredObject: Colors  {
     public ColoredObject (){
         Color = this.randomColor();
     }
+
+    protected string randomColor(List<string> colorNames){
+        
+    }
 }
 
 
+
 class FallingObject: ColoredObject{
+
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 
