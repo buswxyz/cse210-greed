@@ -3,13 +3,15 @@ using System.Numerics;
 
 namespace Helloworld{
 static class Program{
- public static void Main()
+        public static void Main()
         {
 
             var ScreenHeight = 480;
             var ScreenWidth = 800;
             var Objects = new List<FallingObject>();
             var Random = new Random();
+            var player = new Player();
+            var score = new Score();
 
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
             Raylib.SetTargetFPS(60);
@@ -17,7 +19,7 @@ static class Program{
             while (!Raylib.WindowShouldClose())
             {
                 // Add a new random object to the screen every iteration of our game loop
-                var whichType = Random.Next(3);
+                var whichType = Random.Next(20);
 
                 // Generate a random velocity for this object
                 var randomY = Random.Next(1, 4);
@@ -41,7 +43,7 @@ static class Program{
                         case 1:
                         //Tempararoly using circles for rock, need to switch to actual drawing
                             Console.WriteLine("Creating a rock");
-                            var rock = new Rock( 10);
+                            var rock = new Rock(15);
                             rock.Position = position;
                             rock.Velocity = new Vector2(0, randomY);
                             Objects.Add(rock);
@@ -53,18 +55,24 @@ static class Program{
                     Raylib.BeginDrawing();
                     Raylib.ClearBackground(Color.BLACK);
 
-                    // Draw all of the objects in their current location
+                    // This draws all of the objects in their current location, updating every single runthrough of the program
                     foreach (var obj in Objects) {
                         obj.Draw();
                     }
 
-                    
-
+                    player.movement();
+                    score.scorekeeping();
                     Raylib.EndDrawing();
 
                     // Move all of the objects to their next location
-                    foreach (var obj in Objects) {
+                    foreach (var obj in Objects.ToList()) {
                         obj.Move();
+                        if (obj.CheckCollision(player.PlayerPosition)){
+                            var newscore = score.pointtotal + obj.pointvalue;
+                            score.pointtotal = newscore;
+                            Objects.Remove(obj);
+                        }
+                        
                     }
             }
 

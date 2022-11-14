@@ -39,6 +39,11 @@ class FallingObject: ColoredObject{
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 
+    public int pointvalue {get; set; }= 0;
+
+    public virtual bool CheckCollision(Rectangle rect){
+        return false;
+    }
 
     virtual public void Draw(){
 
@@ -55,13 +60,20 @@ class Gem: FallingObject{
 
     public int Size {get; set;} 
 
+    public override bool CheckCollision(Rectangle rect){
+        return Raylib.CheckCollisionRecs(rect,CollisonGem());
+    }
     public Gem(int size){
         Size = size;
+        pointvalue = 1;
+    }
+    public Rectangle CollisonGem(){
+        return new Rectangle((int)Position.X, (int)Position.Y, Size, Size);
     }
     
 
     override public void Draw() {
-        Raylib.DrawRectangle((int)Position.X, (int)Position.Y, Size, Size, Color);
+        Raylib.DrawRectangleRec(CollisonGem(), Color);
     }
 }
 
@@ -70,6 +82,10 @@ class Rock: FallingObject{
 
     public Rock( int radius){
         Radius = radius;
+        pointvalue = -1;
+    }
+    public override bool CheckCollision(Rectangle rect){
+        return Raylib.CheckCollisionCircleRec(Position,Radius,rect);
     }
     override public void Draw() {
         Raylib.DrawCircle((int)Position.X, (int)Position.Y, Radius, Color);
@@ -78,42 +94,39 @@ class Rock: FallingObject{
 }
 
 class Player{
+    public Rectangle PlayerPosition {get;set;} = new Rectangle(400, 460,20,20);
 
-           // public static void Main()
-        //{
+        public void movement(){
+            var newplayerposition = PlayerPosition;
+            var PlayerMovementSpeed = 4;
 
-           // var BallPosition = new Vector2(400, 780);
-           // var BallMovementSpeed = 4;
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
+                    newplayerposition.x += PlayerMovementSpeed;
+                }
+
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
+                    newplayerposition.x -= PlayerMovementSpeed;
+                }
+
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
+                    newplayerposition.y -= PlayerMovementSpeed;
+                }
+
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)) {
+                    newplayerposition.y  += PlayerMovementSpeed;
+                }
+                PlayerPosition = newplayerposition;
+                Raylib.DrawRectangleRec(PlayerPosition, Color.MAROON);
             
-
-            //while (!Raylib.WindowShouldClose())
-           // {
-
-               // if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-               //     BallPosition.X += BallMovementSpeed;
-               // }
-
-                //if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-                //    BallPosition.X -= BallMovementSpeed;
-                //}
-
-                //if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
-                //    BallPosition.Y -= BallMovementSpeed;
-                //}
-
-                //if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)) {
-               //     BallPosition.Y  += BallMovementSpeed;
-               // }
-
-                //Raylib.DrawRectangle(400, 780, 20, 20, Color.MAROON);
-            //}   
-        //}
-}
-class CheckCollision{
-
-}
-
+            }   
+        }
 class Score{
 
+    public int pointtotal {get; set;} = 0;
+    public void scorekeeping(){
+    Raylib.DrawText($"{pointtotal}",20,20,20,Color.WHITE);
+    }
+}    
 }
-}
+
+
